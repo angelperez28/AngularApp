@@ -1,0 +1,244 @@
+.row
+    .col-lg-3.col-md-6
+        .panel.panel-primary
+          .panel-heading
+            .row
+              .col-xs-3
+                i.fa.fa-comments.fa-5x
+              .col-xs-9.text-right
+                .huge 26
+                div New Comments!
+          a(href='dashboard#')
+            .panel-footer
+              span.pull-left View Details
+              span.pull-right
+                i.fa.fa-arrow-circle-right
+              .clearfix
+      .col-lg-3.col-md-6
+        .panel.panel-green
+          .panel-heading
+            .row
+              .col-xs-3
+                i.fa.fa-tasks.fa-5x
+              .col-xs-9.text-right
+                .huge 12
+                div New Tasks!
+          a(href='dashboard#')
+            .panel-footer
+              span.pull-left View Details
+              span.pull-right
+                i.fa.fa-arrow-circle-right
+              .clearfix
+      .col-lg-3.col-md-6
+        .panel.panel-yellow
+          .panel-heading
+            .row
+              .col-xs-3
+                i.fa.fa-shopping-cart.fa-5x
+              .col-xs-9.text-right
+                .huge 124
+                div New Orders!
+          a(href='dashboard#')
+            .panel-footer
+              span.pull-left View Details
+              span.pull-right
+                i.fa.fa-arrow-circle-right
+              .clearfix
+      .col-lg-3.col-md-6
+        .panel.panel-red
+          .panel-heading
+            .row
+              .col-xs-3
+                i.fa.fa-support.fa-5x
+              .col-xs-9.text-right
+                .huge 13
+                div Support Tickets!
+          a(href='dashboard#')
+            .panel-footer
+              span.pull-left View Details
+              span.pull-right
+                i.fa.fa-arrow-circle-right
+              .clearfix 
+    .row
+      .col-lg-8
+      
+      
+        // Area Chart
+        .panel.panel-default
+          .panel-heading
+            i.fa.fa-bar-chart-o.fa-fw
+            |  Area Chart Example
+            .pull-right
+              .btn-group
+                button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                  | Actions
+                  span.caret
+                ul.dropdown-menu.pull-right(role='menu')
+                  li
+                    a(href='dashboard#') Action
+                  li
+                    a(href='dashboard#') Another action
+                  li
+                    a(href='dashboard#') Something else here
+                  li.divider
+                  li
+                    a(href='dashboard#') Separated link
+          .panel-body
+            #morris-area-chart 
+            
+            
+        // Bar Chart 
+        .panel.panel-default
+          .panel-heading
+            i.fa.fa-bar-chart-o.fa-fw
+            |  Bar Chart Example
+            .pull-right
+              .btn-group
+                button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                  | Actions
+                  span.caret
+                ul.dropdown-menu.pull-right(role='menu')
+                  li
+                    a(href='dashboard#') Action
+                  li
+                    a(href='dashboard#') Another action
+                  li
+                    a(href='dashboard#') Something else here
+                  li.divider
+                  li
+                    a(href='dashboard#') Separated link
+          .panel-body
+            .row
+              .col-lg-4
+                .table-responsive
+                  table.table.table-bordered.table-hover.table-striped
+                    thead
+                      tr
+                        th #
+                        th Date
+                        th Time
+                        th Amount
+                    tbody
+                      tr(ng-repeat='tableRow in dashboardTable')
+                        td {{tableRow.ID}}
+                        td {{tableRow.Date}}
+                        td {{tableRow.Time}}
+                        td {{tableRow.Amount}}
+              .col-lg-8
+                #morris-bar-chart 
+                
+                
+        // Responsive Timeline
+        .panel.panel-default
+          .panel-heading
+            i.fa.fa-clock-o.fa-fw
+            | Responsive Timeline
+          .panel-body
+            ul.timeline
+              li(ng-repeat='lineItem in timeline', ng-class-even="'timeline-inverted'", ng-switch='lineItem.Icon.length > 0')
+                
+                .timeline-badge(class='{{lineItem.Type}}', ng-switch-when='true')
+                  i.fa(class='fa-{{lineItem.Icon}}')
+                
+                .timeline-panel
+                  .timeline-heading
+                    h4.timeline-title {{lineItem.Heading}}
+                    p(ng-show='lineItem.Timestamp!=null')
+                      small.text-muted
+                        i.fa.fa-clock-o
+                        |  {{lineItem.Timestamp}}
+                  .timeline-body
+                    p
+                      | {{lineItem.Body}}
+                    hr(ng-show='lineItem.Menu!=null')
+                    .btn-group(ng-show='lineItem.Menu!=null')
+                      button.btn.btn-primary.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown')
+                        i.fa.fa-gear
+                        span.caret
+                      ul.dropdown-menu(role='menu')
+                        li(ng-repeat='menuItem in lineItem.Menu')
+                          a(href='{{menuItem.URL}}') {{menuItem.Item}}
+
+      .col-lg-4
+      
+      
+        // Notifications
+        .panel.panel-default
+          .panel-heading
+            i.fa.fa-bell.fa-fw
+            |  Notifications Panel
+          .panel-body
+            .list-group
+              a.list-group-item(href='dashboard#', ng-repeat='listItem in notifications')
+                i.fa.fa-fw(class="fa-{{listItem.Icon}}")
+                |  {{listItem.Subject}}
+                span.pull-right.text-muted.small
+                  em {{listItem.DateTime}}
+            a.btn.btn-default.btn-block(href='dashboard#') View All Alerts 
+        
+        
+        // Donut Chart
+        .panel.panel-default
+          .panel-heading
+            i.fa.fa-bar-chart-o.fa-fw
+            |  Donut Chart Example
+          .panel-body
+            #morris-donut-chart
+            a.btn.btn-default.btn-block(href='dashboard#') View Details
+            
+            
+        // Chat Panel    
+        .chat-panel.panel.panel-default
+          .panel-heading
+            i.fa.fa-comments.fa-fw
+            |  Chat
+            .btn-group.pull-right
+              button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                i.fa.fa-chevron-down
+              ul.dropdown-menu.slidedown
+                li
+                  a(href='dashboard#')
+                    i.fa.fa-refresh.fa-fw
+                    | Refresh
+                li
+                  a(href='dashboard#')
+                    i.fa.fa-check-circle.fa-fw
+                    | Available
+                li
+                  a(href='dashboard#')
+                    i.fa.fa-times.fa-fw
+                    | Busy
+                li
+                  a(href='dashboard#')
+                    i.fa.fa-clock-o.fa-fw
+                    | Away
+                li.divider
+                li
+                  a(href='dashboard#')
+                    i.fa.fa-sign-out.fa-fw
+                    | Sign Out
+          .panel-body
+            ul.chat
+              li.clearfix(ng-repeat='chat in chat', class='{{chatDirectionClass(chat.Direction)}}')
+                span.chat-img(class='pull-{{chatDirectionClass(chat.Direction)}}')
+                  img.img-circle(src='{{chat.Icon}}', alt='User Avatar')
+                .chat-body.clearfix
+                  .header(ng-show="chat.Direction=='Outgoing'")
+                    strong.primary-font {{chat.Name}}
+                    small.pull-right.text-muted
+                      i.fa.fa-clock-o.fa-fw
+                      | {{chat.Time}}
+                  .header(ng-show="chat.Direction=='Incoming'")
+                    small.text-muted
+                      i.fa.fa-clock-o.fa-fw
+                      | {{chat.Time}}   
+                    strong.pull-right.primary-font {{chat.Name}}
+                  p
+                    | {{chat.Message}}
+
+          .panel-footer
+            .input-group
+              input#btn-input.form-control.input-sm(type='text', placeholder='Type your message here...')
+              span.input-group-btn
+                button#btn-chat.btn.btn-warning.btn-sm
+                  | Send
