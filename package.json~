@@ -1,10 +1,7 @@
 {
   "name": "application-name",
   "version": "0.0.1",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
+  "private": true,
   "dependencies": {
     "body-parser": "^1.0.2",
     "errorhandler": "^1.0.0",
