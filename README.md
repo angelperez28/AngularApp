@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Angular Express Bootstrap SB Admin Seed
 
 Forked from [btford/angular-express-seed](https://github.com/btford/angular-express-seed) and featuring [Iron Summit Media Strategies - Start Bootstrap](https://github.com/IronSummitMedia/startbootstrap/tree/gh-pages/templates/sb-admin-2), inspired by [jimakker/angular-express-bootstrap-seed](https://github.com/jimakker/angular-express-bootstrap-seed/)
@@ -97,3 +98,6 @@ For more information on the SB Admin Bootstrap Theme please check out http://sta
 
 ## License
 MIT
+=======
+# AngularApp
+>>>>>>> 50aef865ce212ba6a2e835157d73da02f2d784a7
